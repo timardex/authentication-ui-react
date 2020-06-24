@@ -1,0 +1,32 @@
+@import './mixins.scss';
+
+body {
+  font-family: $font1;
+}
+
+.App {
+  width: 100%;
+  max-width: 992px;
+  margin: auto;
+}
+
+//layout
+.pd-1 {
+  padding: $paddingSize1;
+}
+
+.pd-t {
+  padding-top: $paddingSize1;
+}
+
+.pd-r {
+  padding-right: $paddingSize1;
+}
+
+.pd-b {
+  padding-bottom: $paddingSize1;
+}
+
+.pd-l {
+  padding-left: $paddingSize1;
+}

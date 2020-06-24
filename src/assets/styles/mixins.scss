@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @mixin minScreen($width, $type: min) {
   @if map_has_key($breakpoints, $width) {
       $width: map_get($breakpoints, $width);
@@ -9,3 +11,9 @@
       }
   }
 }
+
+//font
+$font1: 'Roboto', sans-serif;
+
+//layout
+$paddingSize1: 1rem;
