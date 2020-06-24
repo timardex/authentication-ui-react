@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './templates/Header';
-import Authentication from './templates/Authentication';
+import Header from './components/templates/Header';
+import Authentication from './components/templates/Authentication';
 
 const App: React.FC<{}> = () => {
   return (
