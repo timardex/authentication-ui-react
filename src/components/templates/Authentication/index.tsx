@@ -25,7 +25,7 @@ const Authentication: React.FC<Props> = (props: Props) => {
     },
   ]
 
-  const getPage = authPages[page] ? (authPages[page].component) : (<ForgotPassword />);
+  const getPage = authPages[page] ? (authPages[page].component) : (<ForgotPassword setPage={setPage} />);
 
   const renderPageNames = (): string => {
     switch (page) {
@@ -55,9 +55,8 @@ const Authentication: React.FC<Props> = (props: Props) => {
                     <li
                       className={`link ${i === page ? 'active' : ''}`}
                       key={i}
-                      onClick={() => setPage(i)}
                     >
-                      <span>{props ? props.title : undefined}</span>
+                      <span onClick={() => setPage(i)}>{props ? props.title : undefined}</span>
                     </li>
                   )
               )}

@@ -4,6 +4,7 @@ button {
   padding: .5rem;
   display: block;
   width: 100%;
+  color: $color1;
 
   &:disabled {
     opacity: 0.2;

@@ -69,21 +69,26 @@
       cursor: pointer;
     }
 
+    .link {
+      padding-bottom: 1rem;
+      margin: 0 0 2rem;
+      color: $color1;
+      font-size: 1.2rem;
+
+      span {
+        cursor: pointer;
+      }
+    }
+
     .auth-header {
       ul {
         li {
-          display: inline-block;
-          padding-bottom: 1rem;
           width: 50%;
-          margin: 0 0 2rem;
+          display: inline-block;
           text-align: center;
 
           &.active {
             text-decoration: underline;
-          }
-
-          span {
-            cursor: pointer;
           }
         }
       }
@@ -212,10 +217,11 @@
   }
 
   .accept-t-and-c {
-      margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
 
       label {
-          display: flex;
+          display: inline-flex;
           justify-content: center;
           align-items: center;
           position: relative;
@@ -262,8 +268,8 @@
                   content: '';
                   position: absolute;
                   display: none;
-                  left: 5px;
-                  top: 0;
+                  left: 6px;
+                  top: 1px;
                   width: 5px;
                   height: 10px;
                   border: solid #000;
