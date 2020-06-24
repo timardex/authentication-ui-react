@@ -21,6 +21,18 @@ $breakpoints: (
   }
 }
 
+@mixin minHeight($height, $type: min) {
+    @if map_has_key($breakpoints, $height) {
+        $height: map_get($breakpoints, $height);
+        @if $type == max {
+            $height: $height - 1px;
+        }
+        @media only screen and (#{$type}-height: $height) {
+            @content;
+        }
+    }
+}
+
 //font
 $font1: 'Roboto', sans-serif;
 

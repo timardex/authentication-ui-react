@@ -2,7 +2,6 @@
 @import '../../../assets/styles/mixins.scss';
 
 #authentication {
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -15,6 +14,88 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $color2;
+    position: relative;
+
+    &.page-forgot-password {
+      height: auto;
+    }
+
+    &.page-sign-in {
+      height: calc(100vh * (8.6 / 11.4));
+
+      @include minHeight('tablet') {
+        height: auto;
+      }
+    }
+
+    &.page-register {
+      height: calc(100vh * (8.6 / 11.2));
+    }
+
+    .container-box {
+      position: relative;
+      padding: 2rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
+      width: 100%;
+      background: $color2;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+
+      &:disabled {
+        opacity: 0.2;
+        pointer-events: none;
+      }
+    }
+
+    .close-dialog {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      cursor: pointer;
+    }
+
+    a {
+      color: $color3;
+      text-decoration: underline;
+    }
+
+    p {
+      margin: 0 0 1rem;
+
+      span {
+        margin-left: 5px;
+      }
+    }
+
+    .component-change {
+      text-decoration: underline;
+      color: $color3;
+      cursor: pointer;
+    }
+
+    .auth-header {
+      ul {
+        li {
+          display: inline-block;
+          padding-bottom: 1rem;
+          width: 50%;
+          margin: 0 0 2rem;
+          text-align: center;
+
+          &.active {
+            text-decoration: underline;
+          }
+
+          span {
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 }
