@@ -1,0 +1,16 @@
+@import '../../../assets/styles/colors.scss';
+
+button {
+  padding: .5rem;
+  display: block;
+  width: 100%;
+
+  &:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  &.primary {
+    background: $color3;
+  }
+}

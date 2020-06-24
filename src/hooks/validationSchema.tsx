@@ -1,4 +1,4 @@
-export const stateValidatorSchema = {
+export const validationSchema = {
   firstName: {
     required: true,
     validator: {
