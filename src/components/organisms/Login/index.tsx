@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useForm from '../../../hooks/authUseForm';
 import { FormGroups } from '../../../hooks/formGroups';
 import { validationSchema } from '../../../hooks/validationSchema';
@@ -12,7 +12,6 @@ interface Props {
 
 const Login: React.FC<Props> = (props: Props) => {
   const { setPage } = props;
-  const [loginError, setLoginError] = useState<string>();
   const stateSchema: Object = {
     email: {
       value: '',
@@ -43,14 +42,14 @@ const Login: React.FC<Props> = (props: Props) => {
           <div className="form-group">
             <label htmlFor="email" className="form-label">
               Email address
-                        </label>
+            </label>
             <FormGroups inputValue={email} type={'email'} name={'email'} handleOnChange={handleOnChange} />
             {errors.email && dirty.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="password" className="form-label">
               Password
-                        </label>
+            </label>
             <FormGroups
               inputValue={password}
               type={'password'}
@@ -60,19 +59,18 @@ const Login: React.FC<Props> = (props: Props) => {
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
           </div>
 
-          <p className="component-change" onClick={() => props.setPage(2)}>
+          <p className="component-change" onClick={() => setPage(2)}>
             Forgotten password
           </p>
 
           <Button buttonType="primary" buttonText="Sign in" buttonFor="submit" buttonDisabled={disable} />
 
-          {loginError && <div className="login-failed">{loginError}</div>}
         </form>
       </div>
       <div className="component-footer">
         <p>
           Want to create a new account?
-          <span className="component-change" onClick={() => props.setPage(1)}>
+          <span className="component-change" onClick={() => setPage(1)}>
             Register here
           </span>
         </p>

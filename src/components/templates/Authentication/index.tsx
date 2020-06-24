@@ -21,7 +21,7 @@ const Authentication: React.FC<Props> = (props: Props) => {
     },
     {
       title: 'Register',
-      component: <Register />
+      component: <Register setPage={setPage} />
     },
   ]
 
