@@ -1,5 +1,5 @@
 import React from 'react';
-import { User } from '../../../assets/icons/User';
+import { Icon } from '../../molecules/Icon';
 
 import './Header.scss';
 
@@ -13,7 +13,7 @@ const Header: React.FC<Props> = (props: Props) => {
     <header id="header" className="pd-1">
       <section className="col-md">
         <div className="sign-up" onClick={() => showAuth(true)}>
-          <span>Sign up</span> <User />
+          <span>Sign up</span> <Icon type="user" size="small" />
         </div>
       </section>
     </header>

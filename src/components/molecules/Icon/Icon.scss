@@ -1,0 +1,50 @@
+$icon-size-s-tiny: 10px;
+$icon-size-tiny: 20px;
+$icon-size-small: 30px;
+$icon-size-medium: 40px;
+$icon-size-x-medium: 50px;
+$icon-size-large: 60px;
+$icon-size-x-large: 125px;
+
+@mixin icon-size($size) {
+    width: $size;
+    height: $size;
+    min-width: $size;
+    min-height: $size;
+}
+
+.icon-wrapper {
+    display: flex;
+
+    &.s-tiny {
+        @include icon-size($icon-size-s-tiny);
+    }
+
+    &.tiny {
+        @include icon-size($icon-size-tiny);
+    }
+
+    &.small {
+        @include icon-size($icon-size-small);
+    }
+
+    &.medium {
+        @include icon-size($icon-size-medium);
+    }
+
+    &.x-medium {
+        @include icon-size($icon-size-x-medium);
+    }
+
+    &.large {
+        @include icon-size($icon-size-large);
+    }
+
+    &.x-large {
+        @include icon-size($icon-size-x-large);
+    }
+
+    svg {
+        flex: 1;
+    }
+}

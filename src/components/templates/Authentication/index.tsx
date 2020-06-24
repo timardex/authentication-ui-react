@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Login from '../../organisms/Login';
 import Register from '../../organisms/Register';
 import ForgotPassword from '../../organisms/ForgotPassword';
-import { Close } from '../../../assets/icons/Close';
+import { Icon } from '../../molecules/Icon';
 
 import './Authentication.scss';
 
@@ -46,7 +46,7 @@ const Authentication: React.FC<Props> = (props: Props) => {
         <div className="container-box">
           <div className="auth-header">
             <div className="close-dialog" onClick={() => hideAuth(false)}>
-              <Close />
+              <Icon type="close" size="small" />
             </div>
             <ul>
               {authPages.map(

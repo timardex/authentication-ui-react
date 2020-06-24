@@ -3,7 +3,7 @@ import useForm from '../../../hooks/authUseForm';
 import { FormGroups } from '../../../hooks/formGroups';
 import { validationSchema } from '../../../hooks/validationSchema';
 import Button from '../../molecules/Button';
-import { Chevron } from '../../../assets/icons/Chevron';
+import { Icon } from '../../molecules/Icon';
 
 import './ForgotPassword.scss';
 
@@ -35,7 +35,7 @@ const ForgotPassword: React.FC<Props> = (props: Props) => {
   return (
     <div id="forgot-password">
       <div className="link">
-        <span onClick={() => setPage(0)}><Chevron /> Forgotten password</span>
+        <span onClick={() => setPage(0)}><Icon type="chevron" size="tiny" /> Forgotten password</span>
       </div>
       <div className="auth-form">
         <form autoComplete="off" onSubmit={handleOnSubmit}>
