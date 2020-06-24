@@ -3,11 +3,20 @@ import { User } from '../../../assets/icons/User';
 
 import './Header.scss';
 
-const Header: React.FC<{}> = () => {
+interface Props {
+  showAuth: Function;
+}
+
+const Header: React.FC<Props> = (props: Props) => {
+  const { showAuth } = props;
   return (
-    <div id="header" className="pd-1">
-      <div className="sign-up"><span>Sign up</span> <User /></div>
-    </div>
+    <header id="header" className="pd-1">
+      <section className="col-md">
+        <div className="sign-up" onClick={() => showAuth(true)}>
+          <span>Sign up</span> <User />
+        </div>
+      </section>
+    </header>
   );
 }
 

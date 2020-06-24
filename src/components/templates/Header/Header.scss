@@ -2,9 +2,12 @@
 @import '../../../assets/styles/mixins.scss';
 
 #header {
-  background: $color-primary-brand;
-  display: flex;
-  justify-content: flex-end;
+  background: $color2;
+
+  section {
+    display: flex;
+    justify-content: flex-end;
+  }
 
   .sign-up {
     display: flex;

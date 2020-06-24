@@ -1,13 +1,9 @@
+@import './colors.scss';
 @import './mixins.scss';
 
 body {
   font-family: $font1;
-}
-
-.App {
-  width: 100%;
-  max-width: 992px;
-  margin: auto;
+  color: $color1;
 }
 
 //layout
@@ -29,4 +25,16 @@ body {
 
 .pd-l {
   padding-left: $paddingSize1;
+}
+
+.col-md {
+  max-width: $sizeMD;
+  width: 100%;
+  margin: auto;
+}
+
+.col-sm {
+  max-width: $sizeSM;
+  width: 100%;
+  margin: auto;
 }

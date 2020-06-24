@@ -4,7 +4,9 @@ import './Authentication.scss';
 const Authentication: React.FC<{}> = () => {
   return (
     <div id="authentication">
-      Authentication
+      <div className="container col-sm">
+        Auth
+      </div>
     </div>
   );
 }
