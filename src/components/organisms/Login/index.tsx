@@ -1,7 +1,12 @@
 import React from 'react';
 import './Login.scss';
 
-const Login: React.FC<{}> = () => {
+interface Props {
+  setPage: Function;
+}
+
+const Login: React.FC<Props> = (props: Props) => {
+  const { setPage } = props;
   return (
     <div id="login">
       Login
