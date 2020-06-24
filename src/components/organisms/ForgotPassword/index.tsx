@@ -21,7 +21,7 @@ const ForgotPassword: React.FC<Props> = (props: Props) => {
   };
 
   const onSubmitForm = (state: any): void => {
-    alert(state)
+    alert(JSON.stringify(state))
   };
 
   const { values, errors, dirty, handleOnChange, handleOnSubmit, disable } = useForm(

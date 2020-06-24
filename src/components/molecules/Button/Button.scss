@@ -5,6 +5,8 @@ button {
   display: block;
   width: 100%;
   color: $color1;
+  font-size: 1.3rem !important;
+  border: none;
 
   &:disabled {
     opacity: 0.2;

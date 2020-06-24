@@ -3,6 +3,7 @@ import useForm from '../../../hooks/authUseForm';
 import { FormGroups } from '../../../hooks/formGroups';
 import { validationSchema } from '../../../hooks/validationSchema';
 import Button from '../../molecules/Button';
+import { Icon } from '../../molecules/Icon';
 
 import './Register.scss';
 
@@ -48,7 +49,7 @@ const Register: React.FC<Props> = (props: Props) => {
   };
 
   const onSubmitForm = (state: any): void => {
-    alert(state)
+    alert(JSON.stringify(state))
   };
 
   const { values, errors, dirty, handleOnChange, handleOnSubmit, disable } = useForm(
@@ -61,14 +62,6 @@ const Register: React.FC<Props> = (props: Props) => {
 
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
   const [acceptTandC, setAcceptTandC] = useState<any>();
-
-  const togglePasswordVisiblity = (): void => {
-    setPasswordShown(!passwordShown);
-  };
-
-  const handleTandC = (enabled: boolean): void => {
-    setAcceptTandC(enabled);
-  };
 
   return (
     <div id="register">
@@ -109,7 +102,7 @@ const Register: React.FC<Props> = (props: Props) => {
               handleOnChange={handleOnChange}
             />
             {errors.postCode && dirty.postCode && <span className="error">{errors.postCode}</span>}
-            <div className="icon"></div>
+            <Icon type="exclamation" size="small" />
             <div className="information-box">
               <p>
                 Postcode
@@ -157,7 +150,7 @@ const Register: React.FC<Props> = (props: Props) => {
                 {errors.dobYear && dirty.dobYear && <span className="error">{errors.dobYear}</span>}
               </div>
             </div>
-            <div className="icon"></div>
+            <Icon type="exclamation" size="small" />
             <div className="information-box">
               <p>
                 Date of birth
@@ -186,12 +179,12 @@ const Register: React.FC<Props> = (props: Props) => {
               handleOnChange={handleOnChange}
             />
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
-            <div className="icon" onClick={togglePasswordVisiblity}>
-
+            <div onClick={() => setPasswordShown(!passwordShown)}>
+              <Icon type="eye" size="small" />
             </div>
           </div>
 
-          <div className="accept-t-and-c">
+          <div className="accept-t-and-c text-center">
             <label>
               <span className={`checkmark ${acceptTandC ? 'active' : ''}`}></span>
               <span className="confirmation-text">
@@ -204,7 +197,7 @@ const Register: React.FC<Props> = (props: Props) => {
                   Terms & Conditions
                 </a>
               </span>
-              <input type="checkbox" value={acceptTandC} onChange={e => handleTandC(!acceptTandC)} />
+              <input type="checkbox" value={acceptTandC} onChange={() => setAcceptTandC(!acceptTandC)} />
             </label>
           </div>
           <Button
@@ -215,7 +208,7 @@ const Register: React.FC<Props> = (props: Props) => {
           />
         </form>
       </div>
-      <div className="component-footer">
+      <div className="component-footer text-center">
         <p>
           Have an account already?
           <span className="component-change" onClick={() => setPage(0)}>

@@ -47,4 +47,8 @@ $icon-size-x-large: 125px;
     svg {
         flex: 1;
     }
+
+    &.clickable {
+        cursor: pointer;
+    }
 }

@@ -24,7 +24,7 @@ const Login: React.FC<Props> = (props: Props) => {
   };
 
   const onSubmitForm = (state: any): void => {
-    alert(state)
+    alert(JSON.stringify(state))
   };
 
   const { values, errors, dirty, handleOnChange, handleOnSubmit, disable } = useForm(
@@ -59,7 +59,7 @@ const Login: React.FC<Props> = (props: Props) => {
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
           </div>
 
-          <p className="component-change" onClick={() => setPage(2)}>
+          <p className="component-change text-right" onClick={() => setPage(2)}>
             Forgotten password
           </p>
 
@@ -67,7 +67,7 @@ const Login: React.FC<Props> = (props: Props) => {
 
         </form>
       </div>
-      <div className="component-footer">
+      <div className="component-footer text-center">
         <p>
           Want to create a new account?
           <span className="component-change" onClick={() => setPage(1)}>

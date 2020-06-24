@@ -14,12 +14,14 @@ const iconSet = {
 interface Props {
   type: keyof typeof iconSet;
   size?: 's-tiny' | 'tiny' | 'small' | 'medium' | 'x-medium' | 'large' | 'x-large';
+  clickable?: boolean;
 }
 
 export const Icon: React.FC<Props> = (props: Props) => {
-  const { type, size = 'small', ...rest } = props
+  const { type, size = 'small', clickable = true, ...rest } = props;
+  const classes = ['icon-wrapper', type, size, clickable && 'clickable'].filter(c => !!c).join(' ');
   return (
-    <div className={`icon-wrapper ${type} ${size}`}>
+    <div className={classes}>
       {iconSet[type]({ ...rest })}
     </div>
   )
