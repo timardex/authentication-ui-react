@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Login from '../../organisms/Login';
 import Register from '../../organisms/Register';
 import ForgotPassword from '../../organisms/ForgotPassword';
-import { Icon } from '../../molecules/Icon';
+import Icon from '../../molecules/Icon';
 
-import './Authentication.scss';
+import './style.scss';
 
 interface Props {
   hideAuth: Function;

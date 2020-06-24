@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icon } from '../../molecules/Icon';
+import Icon from '../../molecules/Icon';
 
-import './Header.scss';
+import './style.scss';
 
 interface Props {
   showAuth: Function;

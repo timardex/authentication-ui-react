@@ -1,11 +1,13 @@
 import React from 'react';
-import useForm from '../../../hooks/authUseForm';
-import { FormGroups } from '../../../hooks/formGroups';
-import { validationSchema } from '../../../hooks/validationSchema';
-import Button from '../../molecules/Button';
-import { Icon } from '../../molecules/Icon';
 
-import './ForgotPassword.scss';
+import useForm from '../../../hooks/authUseForm';
+import { validationSchema } from '../../../hooks/validationSchema';
+
+import FormGroup from '../../molecules/FormGroup';
+import Button from '../../molecules/Button';
+import Icon from '../../molecules/Icon';
+
+import './style.scss';
 
 interface Props {
   setPage: Function;
@@ -39,11 +41,8 @@ const ForgotPassword: React.FC<Props> = (props: Props) => {
       </div>
       <div className="auth-form">
         <form autoComplete="off" onSubmit={handleOnSubmit}>
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email address
-            </label>
-            <FormGroups inputValue={email} type={'email'} name={'email'} handleOnChange={handleOnChange} />
+          <div className="group">
+            <FormGroup inputValue={email} type={'email'} name={'email'} placeholder="Email address" handleOnChange={handleOnChange} />
             {errors.email && dirty.email && <span className="error">{errors.email}</span>}
           </div>
 

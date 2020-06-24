@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import useForm from '../../../hooks/authUseForm';
-import { FormGroups } from '../../../hooks/formGroups';
-import { validationSchema } from '../../../hooks/validationSchema';
-import Button from '../../molecules/Button';
-import { Icon } from '../../molecules/Icon';
 
-import './Register.scss';
+import useForm from '../../../hooks/authUseForm';
+import { validationSchema } from '../../../hooks/validationSchema';
+
+import FormGroup from '../../molecules/FormGroup';
+import Button from '../../molecules/Button';
+import Icon from '../../molecules/Icon';
+
+import './style.scss';
 
 interface Props {
   setPage: Function;
@@ -67,60 +69,49 @@ const Register: React.FC<Props> = (props: Props) => {
     <div id="register">
       <div className="auth-form">
         <form autoComplete="off" onSubmit={handleOnSubmit}>
-          <div className="form-group">
-            <label htmlFor="firstName" className="form-label">
-              First name
-            </label>
-            <FormGroups
+          <div className="group">
+            <FormGroup
               inputValue={firstName}
               type={'text'}
               name={'firstName'}
+              placeholder={'First name'}
               handleOnChange={handleOnChange}
             />
             {errors.firstName && dirty.firstName && <span className="error">{errors.firstName}</span>}
           </div>
-          <div className="form-group">
-            <label htmlFor="lastName" className="form-label">
-              Last name
-            </label>
-            <FormGroups
+          <div className="group">
+            <FormGroup
               inputValue={lastName}
               type={'text'}
               name={'lastName'}
+              placeholder={'Last name'}
               handleOnChange={handleOnChange}
             />
             {errors.lastName && dirty.lastName && <span className="error">{errors.lastName}</span>}
           </div>
-          <div className="form-group">
-            <label htmlFor="postCode" className="form-label">
-              Postcode
-            </label>
-            <FormGroups
+          <div className="group">
+            <FormGroup
               inputValue={postCode}
               type={'text'}
               name={'postCode'}
+              placeholder={'Postcode'}
               handleOnChange={handleOnChange}
             />
             {errors.postCode && dirty.postCode && <span className="error">{errors.postCode}</span>}
             <Icon type="exclamation" size="small" />
             <div className="information-box">
-              <p>
-                Postcode
-                <span>
-                  We need to know where you are located so we can tailor content and advertising to
-                  your area - you can make choices about how we use your data at any point in your app
-                  settings page.
-                </span>
-              </p>
+              Postcode
+              <span>
+                We need to know where you are located so we can tailor content and advertising to
+                your area - you can make choices about how we use your data at any point in your app
+                settings page.
+              </span>
             </div>
           </div>
-          <div className="date-of-birth form-group">
-            <label htmlFor="date-of-birth" className="form-label">
-              Date of birth
-            </label>
+          <div className="date-of-birth group">
             <div className="input-container">
               <div>
-                <FormGroups
+                <FormGroup
                   inputValue={dobDay}
                   type={'number'}
                   name={'dobDay'}
@@ -130,7 +121,7 @@ const Register: React.FC<Props> = (props: Props) => {
                 {errors.dobDay && dirty.dobDay && <span className="error">{errors.dobDay}</span>}
               </div>
               <div>
-                <FormGroups
+                <FormGroup
                   inputValue={dobMonth}
                   type={'number'}
                   name={'dobMonth'}
@@ -140,7 +131,7 @@ const Register: React.FC<Props> = (props: Props) => {
                 {errors.dobMonth && dirty.dobMonth && <span className="error">{errors.dobMonth}</span>}
               </div>
               <div>
-                <FormGroups
+                <FormGroup
                   inputValue={dobYear}
                   type={'number'}
                   name={'dobYear'}
@@ -152,30 +143,23 @@ const Register: React.FC<Props> = (props: Props) => {
             </div>
             <Icon type="exclamation" size="small" />
             <div className="information-box">
-              <p>
-                Date of birth
-                <span>
-                  We will use this to allow us to only serve age-appropriate content and remove the
-                  necessity to ask you every time you play age-restricted content.
-                </span>
-              </p>
+              Date of birth
+              <span>
+                We will use this to allow us to only serve age-appropriate content and remove the
+                necessity to ask you every time you play age-restricted content.
+              </span>
             </div>
           </div>
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email address
-            </label>
-            <FormGroups inputValue={email} type={'email'} name={'email'} handleOnChange={handleOnChange} />
+          <div className="group">
+            <FormGroup inputValue={email} type={'email'} name={'email'} placeholder={'Email address'} handleOnChange={handleOnChange} />
             {errors.email && dirty.email && <span className="error">{errors.email}</span>}
           </div>
-          <div className="auth-password form-group">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <FormGroups
+          <div className="auth-password group">
+            <FormGroup
               inputValue={password}
               type={passwordShown ? 'text' : 'password'}
               name={'password'}
+              placeholder={'Password'}
               handleOnChange={handleOnChange}
             />
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}

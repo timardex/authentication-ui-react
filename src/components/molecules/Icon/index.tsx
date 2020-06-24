@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Icons from '../../../assets/icons';
 
-import './Icon.scss';
+import './style.scss';
 
 const iconSet = {
   chevron: Icons.Chevron,
@@ -17,7 +17,7 @@ interface Props {
   clickable?: boolean;
 }
 
-export const Icon: React.FC<Props> = (props: Props) => {
+const Icon: React.FC<Props> = (props: Props) => {
   const { type, size = 'small', clickable = true, ...rest } = props;
   const classes = ['icon-wrapper', type, size, clickable && 'clickable'].filter(c => !!c).join(' ');
   return (
@@ -26,3 +26,5 @@ export const Icon: React.FC<Props> = (props: Props) => {
     </div>
   )
 }
+
+export default Icon;

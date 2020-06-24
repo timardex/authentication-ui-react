@@ -1,0 +1,55 @@
+@import '../../../assets/styles/colors.scss';
+
+.form-group {
+  position: relative;
+  padding: 1rem 0 0;
+  margin-bottom: 2rem;
+
+  .form-field {
+    font-family: inherit;
+    border: 0;
+    border-bottom: 1px solid $color1;
+    outline: 0;
+    font-size: 1rem;
+    color: $color1;
+    width: 100%;
+    padding: 7px 0;
+    background: transparent;
+    transition: all 0.2s;
+
+    &:required,&:invalid { box-shadow:none; }
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .form-label {
+      font-size: 1rem;
+      cursor: text;
+      top: 1rem;
+    }
+
+    &:focus {
+      ~ .form-label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+      }
+      
+      border-width: 1px;
+      border-image: linear-gradient(to right, $color1, $color2);
+      border-image-slice: 1;
+    }
+  }
+
+  .form-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $color1;
+  }
+}
