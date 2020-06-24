@@ -70,6 +70,7 @@ const Register: React.FC<Props> = (props: Props) => {
       <div className="auth-form">
         <form autoComplete="off" onSubmit={handleOnSubmit}>
           <div className="group">
+            <Icon type="user" size="tiny" className="input-icon" />
             <FormGroup
               inputValue={firstName}
               type={'text'}
@@ -80,6 +81,7 @@ const Register: React.FC<Props> = (props: Props) => {
             {errors.firstName && dirty.firstName && <span className="error">{errors.firstName}</span>}
           </div>
           <div className="group">
+            <Icon type="user" size="tiny" className="input-icon" />
             <FormGroup
               inputValue={lastName}
               type={'text'}
@@ -90,6 +92,7 @@ const Register: React.FC<Props> = (props: Props) => {
             {errors.lastName && dirty.lastName && <span className="error">{errors.lastName}</span>}
           </div>
           <div className="group">
+            <Icon type="mailbox" size="tiny" className="input-icon" />
             <FormGroup
               inputValue={postCode}
               type={'text'}
@@ -109,6 +112,7 @@ const Register: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className="date-of-birth group">
+            <Icon type="calendar" size="tiny" className="input-icon" />
             <div className="input-container">
               <div>
                 <FormGroup
@@ -151,10 +155,12 @@ const Register: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className="group">
+            <Icon type="email" size="tiny" className="input-icon" />
             <FormGroup inputValue={email} type={'email'} name={'email'} placeholder={'Email address'} handleOnChange={handleOnChange} />
             {errors.email && dirty.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="auth-password group">
+            <Icon type="lock" size="tiny" className="input-icon" />
             <FormGroup
               inputValue={password}
               type={passwordShown ? 'text' : 'password'}
@@ -196,7 +202,7 @@ const Register: React.FC<Props> = (props: Props) => {
         <p>
           Have an account already?
           <span className="component-change" onClick={() => setPage(0)}>
-            Sign-in here
+            Sign-in
           </span>
         </p>
       </div>

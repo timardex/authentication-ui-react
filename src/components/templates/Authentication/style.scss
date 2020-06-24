@@ -21,7 +21,7 @@
     }
 
     &.page-sign-in {
-      height: calc(100vh * (8.6 / 13));
+      height: calc(100vh * (8.6 / 15));
 
       @include minHeight('tablet') {
         height: auto;
@@ -29,7 +29,7 @@
     }
 
     &.page-register {
-      height: calc(100vh * (8.6 / 11.2));
+      height: calc(100vh * (8.6 / 15));
     }
 
     .container-box {
@@ -55,7 +55,8 @@
     }
 
     p {
-      margin: 1rem 0;
+      margin: 2rem 0;
+      line-height: 1.3rem;
 
       span {
         margin-left: 5px;
@@ -104,6 +105,11 @@
 .auth-form {
   .group {
       position: relative;
+
+      .input-icon {
+        position: absolute;
+        left: 0; top: .8rem;
+      }
 
       .error {
           color: red;
@@ -192,12 +198,13 @@
           justify-content: center;
           align-items: center;
           position: relative;
-          font-size: 12px;
+          font-size: .8rem;
           cursor: pointer;
           user-select: none;
 
           .confirmation-text {
               width: 100%;
+              line-height: 1.2rem;
 
               @include minScreen('phone-wide') {
                   width: auto;

@@ -42,6 +42,7 @@ const ForgotPassword: React.FC<Props> = (props: Props) => {
       <div className="auth-form">
         <form autoComplete="off" onSubmit={handleOnSubmit}>
           <div className="group">
+            <Icon type="email" size="tiny" className="input-icon" />
             <FormGroup inputValue={email} type={'email'} name={'email'} placeholder="Email address" handleOnChange={handleOnChange} />
             {errors.email && dirty.email && <span className="error">{errors.email}</span>}
           </div>
