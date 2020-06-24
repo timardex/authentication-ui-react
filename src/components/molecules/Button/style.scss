@@ -4,9 +4,10 @@ button {
   padding: .75rem;
   display: block;
   width: 100%;
-  color: $color1;
+  color: $color2;
   font-size: 1.3rem !important;
   border: none;
+  transition: all .1s linear;
 
   &:disabled {
     opacity: 0.2;
@@ -14,6 +15,10 @@ button {
   }
 
   &.primary {
-    background: $color3;
+    background: $color1a;
+
+    &:hover {
+      background: $color1;
+    }
   }
 }
