@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useForm from '../../../hooks/authUseForm';
 import { validationSchema } from '../../../hooks/validationSchema';
 
@@ -16,19 +16,28 @@ interface Props {
 
 const Login: React.FC<Props> = (props: Props) => {
   const { setPage, scrollToTop } = props;
+  const [remember, setRemember] = useState<any>(localStorage.getItem('remember') ? true : false);
   const stateSchema: Object = {
     email: {
-      value: '',
+      value: localStorage.getItem('remember') ? localStorage.getItem('email') : '',
       error: '',
     },
     password: {
-      value: '',
+      value: localStorage.getItem('remember') ? localStorage.getItem('password') : '',
       error: '',
     },
   };
 
   const onSubmitForm = (state: any): void => {
-    alert(JSON.stringify(state))
+    alert(JSON.stringify(state));
+    if (remember) {
+      localStorage.setItem('remember', remember);
+      localStorage.setItem('email', state.email);
+      localStorage.setItem('password', state.password);
+    } else {
+      localStorage.removeItem('remember');
+    }
+
   };
 
   const { values, errors, dirty, handleOnChange, handleOnSubmit, disable } = useForm(
@@ -60,9 +69,21 @@ const Login: React.FC<Props> = (props: Props) => {
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
           </div>
 
-          <ComponentChanger btnText={`Forgotten password`} onClick={() => setPage(2)} className="text-right" />
+          <div className="form-footer">
+            <div className="remember-me text-center">
+              <label>
+                <span className={`checkmark ${remember ? 'active' : ''}`}></span>
+                <span>
+                  Remember me
+                </span>
+                <input type="checkbox" value={remember} onChange={() => setRemember(!remember)} />
+              </label>
+            </div>
 
-          <Button buttonType="primary" buttonText="Sign in" buttonFor="submit" buttonDisabled={disable} />
+            <ComponentChanger btnText={`Forgotten password`} onClick={() => setPage(2)} className="text-right" />
+          </div>
+
+          <Button buttonType="primary" buttonText="Sign in" buttonFor="submit" buttonDisabled={localStorage.getItem('remember') ? '' : disable} />
 
         </form>
       </div>

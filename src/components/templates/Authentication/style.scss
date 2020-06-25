@@ -185,7 +185,18 @@
       }
   }
 
-  .accept-t-and-c {
+  .form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    div, p {
+      margin: 0 !important;
+    }
+  }
+
+  .accept-t-and-c, .remember-me {
       margin-bottom: 1rem;
 
       label {
