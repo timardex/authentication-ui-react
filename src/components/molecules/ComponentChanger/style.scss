@@ -1,0 +1,12 @@
+@import '../../../assets/styles/colors.scss';
+
+.component-change {
+   pointer-events: none;
+
+  span {
+    text-decoration: underline;
+    color: $color2;
+    cursor: pointer;
+    pointer-events: all;
+  }
+}

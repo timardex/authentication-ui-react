@@ -5,6 +5,7 @@ import { validationSchema } from '../../../hooks/validationSchema';
 import FormGroup from '../../molecules/FormGroup';
 import Button from '../../molecules/Button';
 import Icon from '../../molecules/Icon';
+import ComponentChanger from '../../molecules/ComponentChanger';
 
 import './style.scss';
 
@@ -58,22 +59,13 @@ const Login: React.FC<Props> = (props: Props) => {
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
           </div>
 
-          <p className="component-change text-right" onClick={() => setPage(2)}>
-            Forgotten password
-          </p>
+          <ComponentChanger btnText={`Forgotten password`} onClick={() => setPage(2)} className="text-right" />
 
           <Button buttonType="primary" buttonText="Sign in" buttonFor="submit" buttonDisabled={disable} />
 
         </form>
       </div>
-      <div className="component-footer text-center">
-        <p>
-          Want to create a new account?
-          <span className="component-change" onClick={() => setPage(1)}>
-            Register here
-          </span>
-        </p>
-      </div>
+      <ComponentChanger text={`Want to create a new account?`} btnText={`Register`} onClick={() => setPage(1)} className="text-center" />
     </div>
   );
 }

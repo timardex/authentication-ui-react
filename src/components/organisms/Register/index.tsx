@@ -6,6 +6,7 @@ import { validationSchema } from '../../../hooks/validationSchema';
 import FormGroup from '../../molecules/FormGroup';
 import Button from '../../molecules/Button';
 import Icon from '../../molecules/Icon';
+import ComponentChanger from '../../molecules/ComponentChanger';
 
 import './style.scss';
 
@@ -198,14 +199,7 @@ const Register: React.FC<Props> = (props: Props) => {
           />
         </form>
       </div>
-      <div className="component-footer text-center">
-        <p>
-          Have an account already?
-          <span className="component-change" onClick={() => setPage(0)}>
-            Sign-in
-          </span>
-        </p>
-      </div>
+      <ComponentChanger text={`Have an account already?`} btnText={`Sign-in`} onClick={() => setPage(0)} className="text-center" />
     </div>
   );
 }
