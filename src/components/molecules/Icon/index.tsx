@@ -19,14 +19,15 @@ interface Props {
   type: keyof typeof iconSet;
   size?: 's-tiny' | 'tiny' | 'small' | 'medium' | 'x-medium' | 'large' | 'x-large';
   clickable?: boolean;
+  onClick?: () => any;
   className?: string
 }
 
 const Icon: React.FC<Props> = (props: Props) => {
-  const { type, size = 'small', className, clickable = true, ...rest } = props;
+  const { type, size = 'small', onClick, className, clickable = true, ...rest } = props;
   const classes = ['icon-wrapper', type, size, className, clickable && 'clickable'].filter(c => !!c).join(' ');
   return (
-    <div className={classes}>
+    <div className={classes} onClick={onClick}>
       {iconSet[type]({ ...rest })}
     </div>
   )

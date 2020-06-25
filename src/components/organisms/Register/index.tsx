@@ -12,10 +12,11 @@ import './style.scss';
 
 interface Props {
   setPage: Function;
+  scrollToTop: Function;
 }
 
 const Register: React.FC<Props> = (props: Props) => {
-  const { setPage } = props;
+  const { setPage, scrollToTop } = props;
   const stateSchema: Object = {
     firstName: {
       value: '',
@@ -170,9 +171,9 @@ const Register: React.FC<Props> = (props: Props) => {
               handleOnChange={handleOnChange}
             />
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
-            <div onClick={() => setPasswordShown(!passwordShown)}>
-              <Icon type="eye" size="small" />
-            </div>
+
+            <Icon type="eye" size="small" onClick={() => setPasswordShown(!passwordShown)} />
+
           </div>
 
           <div className="accept-t-and-c text-center">
@@ -199,7 +200,7 @@ const Register: React.FC<Props> = (props: Props) => {
           />
         </form>
       </div>
-      <ComponentChanger text={`Have an account already?`} btnText={`Sign-in`} onClick={() => setPage(0)} className="text-center" />
+      <ComponentChanger text={`Have an account already?`} btnText={`Sign-in`} onClick={() => { setPage(0); scrollToTop() }} className="text-center" />
     </div>
   );
 }

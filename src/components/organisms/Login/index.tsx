@@ -11,10 +11,11 @@ import './style.scss';
 
 interface Props {
   setPage: Function;
+  scrollToTop: Function;
 }
 
 const Login: React.FC<Props> = (props: Props) => {
-  const { setPage } = props;
+  const { setPage, scrollToTop } = props;
   const stateSchema: Object = {
     email: {
       value: '',
@@ -65,7 +66,7 @@ const Login: React.FC<Props> = (props: Props) => {
 
         </form>
       </div>
-      <ComponentChanger text={`Want to create a new account?`} btnText={`Register`} onClick={() => setPage(1)} className="text-center" />
+      <ComponentChanger text={`Want to create a new account?`} btnText={`Register`} onClick={() => { setPage(1); scrollToTop() }} className="text-center" />
     </div>
   );
 }

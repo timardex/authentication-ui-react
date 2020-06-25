@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 import Login from '../../organisms/Login';
 import Register from '../../organisms/Register';
 import ForgotPassword from '../../organisms/ForgotPassword';
@@ -13,15 +13,23 @@ interface Props {
 const Authentication: React.FC<Props> = (props: Props) => {
   const { hideAuth } = props;
   const [page, setPage] = useState<number>(0);
+  const headerRef = createRef<HTMLDivElement>();
+
+  const scrollToTop = (ref: any): void => {
+    ref.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
 
   const authPages = [
     {
       title: 'Login',
-      component: <Login setPage={setPage} />
+      component: <Login setPage={setPage} scrollToTop={() => scrollToTop(headerRef)} />
     },
     {
       title: 'Register',
-      component: <Register setPage={setPage} />
+      component: <Register setPage={setPage} scrollToTop={() => scrollToTop(headerRef)} />
     },
   ]
 
@@ -44,9 +52,9 @@ const Authentication: React.FC<Props> = (props: Props) => {
     <div id="authentication" className="pd-l pd-r">
       <div className={`container col-sm ${renderPageNames()}`}>
         <div className="container-box">
-          <div className="auth-header">
-            <div className="close-dialog" onClick={() => hideAuth(false)}>
-              <Icon type="close" size="small" />
+          <div className="auth-header" ref={headerRef}>
+            <div className="close-dialog">
+              <Icon type="close" size="small" onClick={() => hideAuth(false)} />
             </div>
             <ul>
               {authPages.map(

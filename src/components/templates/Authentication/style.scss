@@ -34,7 +34,7 @@
 
     .container-box {
       position: relative;
-      padding: 2rem;
+      padding: 0 2rem 2rem;
       overflow-y: auto;
       overflow-x: hidden;
       height: 100%;
@@ -73,6 +73,7 @@
     }
 
     .auth-header {
+      padding-top: 2rem;
       ul {
         display: flex;
         li {

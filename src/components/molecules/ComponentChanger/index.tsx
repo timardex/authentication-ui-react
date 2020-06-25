@@ -4,7 +4,7 @@ import './style.scss';
 export interface Props {
   text?: string,
   btnText: string,
-  onClick: () => any;
+  onClick?: () => any;
   className?: string;
 }
 
