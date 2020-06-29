@@ -12,10 +12,12 @@ import './style.scss';
 interface Props {
   setPage: Function;
   scrollToTop: Function;
+  setPasswordShown: Function;
+  passwordShown: boolean;
 }
 
 const Login: React.FC<Props> = (props: Props) => {
-  const { setPage, scrollToTop } = props;
+  const { setPage, scrollToTop, setPasswordShown, passwordShown } = props;
   const [remember, setRemember] = useState<any>(localStorage.getItem('remember') ? true : false);
   const stateSchema: Object = {
     email: {
@@ -37,7 +39,6 @@ const Login: React.FC<Props> = (props: Props) => {
     } else {
       localStorage.removeItem('remember');
     }
-
   };
 
   const { values, errors, dirty, handleOnChange, handleOnSubmit, disable } = useForm(
@@ -54,19 +55,26 @@ const Login: React.FC<Props> = (props: Props) => {
         <form autoComplete="off" onSubmit={handleOnSubmit}>
           <div className="group">
             <Icon type="email" size="tiny" className="input-icon" />
-            <FormGroup inputValue={email} type={'email'} name={'email'} placeholder="Email address" handleOnChange={handleOnChange} />
+            <FormGroup
+              inputValue={email}
+              type={'email'}
+              name={'email'}
+              placeholder="Email address"
+              handleOnChange={handleOnChange} />
+
             {errors.email && dirty.email && <span className="error">{errors.email}</span>}
           </div>
-          <div className="group">
+          <div className="auth-password group">
             <Icon type="lock" size="tiny" className="input-icon" />
             <FormGroup
               inputValue={password}
-              type={'password'}
+              type={passwordShown ? 'text' : 'password'}
               name={'password'}
               placeholder="Password"
               handleOnChange={handleOnChange}
             />
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
+            <Icon type="eye" size="small" className={passwordShown ? 'line-through' : ''} onClick={() => setPasswordShown()} />
           </div>
 
           <div className="form-footer">
@@ -80,14 +88,25 @@ const Login: React.FC<Props> = (props: Props) => {
               </label>
             </div>
 
-            <ComponentChanger btnText={`Forgotten password`} onClick={() => setPage(2)} className="text-right" />
+            <ComponentChanger
+              btnText={`Forgotten password`}
+              onClick={() => setPage(2)}
+              className="text-right" />
           </div>
 
-          <Button buttonType="primary" buttonText="Sign in" buttonFor="submit" buttonDisabled={localStorage.getItem('remember') ? '' : disable} />
+          <Button
+            buttonType="primary"
+            buttonText="Sign in"
+            buttonFor="submit"
+            buttonDisabled={localStorage.getItem('remember') ? '' : disable} />
 
         </form>
       </div>
-      <ComponentChanger text={`Want to create a new account?`} btnText={`Register`} onClick={() => { setPage(1); scrollToTop() }} className="text-center" />
+      <ComponentChanger
+        text={`Want to create a new account?`}
+        btnText={`Register`}
+        onClick={() => { setPage(1); scrollToTop() }}
+        className="text-center" />
     </div>
   );
 }

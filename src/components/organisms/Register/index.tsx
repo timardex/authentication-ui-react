@@ -13,10 +13,12 @@ import './style.scss';
 interface Props {
   setPage: Function;
   scrollToTop: Function;
+  setPasswordShown: Function;
+  passwordShown: boolean;
 }
 
 const Register: React.FC<Props> = (props: Props) => {
-  const { setPage, scrollToTop } = props;
+  const { setPage, scrollToTop, setPasswordShown, passwordShown } = props;
   const stateSchema: Object = {
     firstName: {
       value: '',
@@ -64,7 +66,7 @@ const Register: React.FC<Props> = (props: Props) => {
 
   const { firstName, lastName, postCode, dobDay, dobMonth, dobYear, email, password } = values;
 
-  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+
   const [acceptTandC, setAcceptTandC] = useState<any>();
 
   return (
@@ -158,7 +160,12 @@ const Register: React.FC<Props> = (props: Props) => {
           </div>
           <div className="group">
             <Icon type="email" size="tiny" className="input-icon" />
-            <FormGroup inputValue={email} type={'email'} name={'email'} placeholder={'Email address'} handleOnChange={handleOnChange} />
+            <FormGroup
+              inputValue={email}
+              type={'email'}
+              name={'email'}
+              placeholder={'Email address'}
+              handleOnChange={handleOnChange} />
             {errors.email && dirty.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="auth-password group">
@@ -172,7 +179,7 @@ const Register: React.FC<Props> = (props: Props) => {
             />
             {errors.password && dirty.password && <span className="error">{errors.password}</span>}
 
-            <Icon type="eye" size="small" onClick={() => setPasswordShown(!passwordShown)} />
+            <Icon type="eye" size="small" className={passwordShown ? 'line-through' : ''} onClick={() => setPasswordShown()} />
 
           </div>
 
@@ -200,7 +207,11 @@ const Register: React.FC<Props> = (props: Props) => {
           />
         </form>
       </div>
-      <ComponentChanger text={`Have an account already?`} btnText={`Sign-in`} onClick={() => { setPage(0); scrollToTop() }} className="text-center" />
+      <ComponentChanger
+        text={`Have an account already?`}
+        btnText={`Sign-in`}
+        onClick={() => { setPage(0); scrollToTop() }}
+        className="text-center" />
     </div>
   );
 }

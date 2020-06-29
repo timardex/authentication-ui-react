@@ -14,41 +14,55 @@ $icon-size-x-large: 125px;
 }
 
 .icon-wrapper {
-    display: flex;
+  display: flex;
+  z-index: 1;
 
-    &.s-tiny {
-        @include icon-size($icon-size-s-tiny);
-    }
+  &.s-tiny {
+    @include icon-size($icon-size-s-tiny);
+  }
 
-    &.tiny {
-        @include icon-size($icon-size-tiny);
-    }
+  &.tiny {
+    @include icon-size($icon-size-tiny);
+  }
 
-    &.small {
-        @include icon-size($icon-size-small);
-    }
+  &.small {
+    @include icon-size($icon-size-small);
+  }
 
-    &.medium {
-        @include icon-size($icon-size-medium);
-    }
+  &.medium {
+    @include icon-size($icon-size-medium);
+  }
 
-    &.x-medium {
-        @include icon-size($icon-size-x-medium);
-    }
+  &.x-medium {
+    @include icon-size($icon-size-x-medium);
+  }
 
-    &.large {
-        @include icon-size($icon-size-large);
-    }
+  &.large {
+    @include icon-size($icon-size-large);
+  }
 
-    &.x-large {
-        @include icon-size($icon-size-x-large);
-    }
+  &.x-large {
+    @include icon-size($icon-size-x-large);
+  }
 
-    svg {
-        flex: 1;
-    }
+  svg {
+    flex: 1;
+  }
 
-    &.clickable {
-        cursor: pointer;
+  &.clickable {
+    cursor: pointer;
+  }
+
+  &.line-through {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0; bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      margin: auto;
+      transform: rotate(-45deg);
     }
+  }
 }

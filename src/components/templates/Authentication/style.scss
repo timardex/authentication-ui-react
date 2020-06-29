@@ -116,13 +116,24 @@
 
       &.date-of-birth {
           .input-container {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
+          
+              @include minScreen('tablet') {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
 
               div {
                   position: relative;
               }
+          }
+
+          .error {
+            bottom: -1.2rem;
+
+            @include minScreen('tablet') {
+              bottom: .7rem;
+            }
           }
       }
 

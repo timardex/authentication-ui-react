@@ -13,6 +13,8 @@ interface Props {
 const Authentication: React.FC<Props> = (props: Props) => {
   const { hideAuth } = props;
   const [page, setPage] = useState<number>(0);
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+
   const headerRef = createRef<HTMLDivElement>();
 
   const scrollToTop = (ref: any): void => {
@@ -25,11 +27,19 @@ const Authentication: React.FC<Props> = (props: Props) => {
   const authPages = [
     {
       title: 'Login',
-      component: <Login setPage={setPage} scrollToTop={() => scrollToTop(headerRef)} />
+      component: <Login
+        setPage={setPage}
+        scrollToTop={() => scrollToTop(headerRef)}
+        passwordShown={passwordShown}
+        setPasswordShown={() => setPasswordShown(!passwordShown)} />
     },
     {
       title: 'Register',
-      component: <Register setPage={setPage} scrollToTop={() => scrollToTop(headerRef)} />
+      component: <Register
+        setPage={setPage}
+        scrollToTop={() => scrollToTop(headerRef)}
+        passwordShown={passwordShown}
+        setPasswordShown={() => setPasswordShown(!passwordShown)} />
     },
   ]
 
