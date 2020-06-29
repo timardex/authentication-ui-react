@@ -1,4 +1,6 @@
 import React, { useState, createRef } from 'react';
+import renderLayoutNames from '../../../helpers/renderLayoutNames';
+
 import Login from '../../organisms/Login';
 import Register from '../../organisms/Register';
 import ForgotPassword from '../../organisms/ForgotPassword';
@@ -46,27 +48,12 @@ const Authentication: React.FC<Props> = (props: Props) => {
 
   const getPage = authPages[page] ? (authPages[page].component) : (<ForgotPassword setPage={setPage} />);
 
-  const renderPageNames = (): string => {
-    switch (page) {
-      case 0:
-        return 'page-sign-in';
-      case 1:
-        return 'page-register';
-      case 2:
-        return 'page-forgot-password';
-      default:
-        return '';
-    }
-  };
-
   return (
     <div id="authentication" className="pd-l pd-r">
-      <div className={`container col-sm ${renderPageNames()}`}>
+      <div className={`container col-sm ${renderLayoutNames(page)}`}>
         <div className="container-box">
           <div className="auth-header" ref={headerRef}>
-            <div className="close-dialog">
-              <Icon type="close" size="small" onClick={() => hideAuth(false)} />
-            </div>
+            <Icon type="close" size="small" className="close-dialog" onClick={() => hideAuth(false)} />
             <ul>
               {authPages.map(
                 (props: any, i: number) =>

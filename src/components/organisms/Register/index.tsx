@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import useForm from '../../../hooks/authUseForm';
-import { validationSchema } from '../../../hooks/validationSchema';
+import useForm from '../../../helpers/authUseForm';
+import { validationSchema } from '../../../helpers/validationSchema';
 
 import FormGroup from '../../molecules/FormGroup';
 import Button from '../../molecules/Button';
