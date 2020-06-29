@@ -15,7 +15,6 @@ $icon-size-x-large: 125px;
 
 .icon-wrapper {
   display: flex;
-  z-index: 1;
 
   &.s-tiny {
     @include icon-size($icon-size-s-tiny);
