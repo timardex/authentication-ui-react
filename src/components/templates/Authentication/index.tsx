@@ -5,6 +5,7 @@ import ForgotPassword from '../../organisms/ForgotPassword';
 import Icon from '../../molecules/Icon';
 
 import './style.scss';
+import './form.scss';
 
 interface Props {
   hideAuth: Function;
