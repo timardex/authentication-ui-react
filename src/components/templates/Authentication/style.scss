@@ -53,6 +53,11 @@
       color: $color2;
       text-decoration: underline;
       outline: none;
+      transition: all .2s linear;
+
+      &:hover, &:focus {
+        color: $color1;
+      }
     }
 
     p {
@@ -82,10 +87,17 @@
           padding: 1rem;
           margin-bottom: 2rem;
           text-align: center;
+          text-transform: uppercase;
           color: $color2;
+          transition: all .1s linear;
+
+          &:hover {
+            color: $color1
+          }
           
           &.active {
             background: $color1a;
+            color: $color1
           }
         }
       }

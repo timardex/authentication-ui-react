@@ -8,5 +8,10 @@
     color: $color2;
     cursor: pointer;
     pointer-events: all;
+    transition: all .2s linear;
+
+    &:hover, &:focus {
+      color: $color1;
+    }
   }
 }
