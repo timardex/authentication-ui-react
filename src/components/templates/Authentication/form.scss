@@ -50,54 +50,6 @@
               align-items: center;
           }
       }
-
-      .exclamation {
-          position: absolute;
-          right: -0.5rem;
-          top: .75rem;
-          display: flex;
-          align-items: center;
-
-          &:hover ~ .information-box {
-              opacity: 1;
-              visibility: visible;
-          }
-      }
-
-      .information-box {
-          position: absolute;
-          top: 0;
-          right: 2rem;
-          width: 200px;
-          padding: 0.5rem;
-          z-index: 2;
-          background: $color2;
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.3s ease;
-          margin: 0;
-
-          &:before {
-              content: '';
-              position: absolute;
-              top: 1rem;
-              right: -0.6rem;
-              width: 0;
-              height: 0;
-              border-top: 10px solid transparent;
-              border-bottom: 10px solid transparent;
-              border-left: 10px solid $color2;
-          }
-
-          span {
-            display: block;
-            margin: 0.3rem 0 0;
-            font-size: .8rem;
-            opacity: 0.5;
-            color: $color1;
-            line-height: 1rem;
-          }
-      }
   }
 
   .form-footer {

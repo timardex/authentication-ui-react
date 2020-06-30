@@ -7,7 +7,9 @@ import FormGroup from '../../molecules/FormGroup';
 import Button from '../../molecules/Button';
 import Icon from '../../molecules/Icon';
 import ComponentChanger from '../../molecules/ComponentChanger';
+import InfoBox from '../../molecules/InfoBox';
 
+import { stateSchema } from './stateSchema';
 import './style.scss';
 
 interface Props {
@@ -19,40 +21,7 @@ interface Props {
 
 const Register: React.FC<Props> = (props: Props) => {
   const { setPage, scrollToTop, setPasswordShown, passwordShown } = props;
-  const stateSchema: Object = {
-    firstName: {
-      value: '',
-      error: '',
-    },
-    lastName: {
-      value: '',
-      error: '',
-    },
-    postCode: {
-      value: '',
-      error: '',
-    },
-    dobDay: {
-      value: '',
-      error: '',
-    },
-    dobMonth: {
-      value: '',
-      error: '',
-    },
-    dobYear: {
-      value: '',
-      error: '',
-    },
-    email: {
-      value: '',
-      error: '',
-    },
-    password: {
-      value: '',
-      error: '',
-    },
-  };
+  const [acceptTandC, setAcceptTandC] = useState<any>();
 
   const onSubmitForm = (state: any): void => {
     alert(JSON.stringify(state))
@@ -65,9 +34,6 @@ const Register: React.FC<Props> = (props: Props) => {
   );
 
   const { firstName, lastName, postCode, dobDay, dobMonth, dobYear, email, password } = values;
-
-
-  const [acceptTandC, setAcceptTandC] = useState<any>();
 
   return (
     <div id="register">
@@ -105,15 +71,8 @@ const Register: React.FC<Props> = (props: Props) => {
               handleOnChange={handleOnChange}
             />
             {errors.postCode && dirty.postCode && <span className="error">{errors.postCode}</span>}
-            <Icon type="exclamation" size="small" />
-            <div className="information-box">
-              Postcode
-              <span>
-                We need to know where you are located so we can tailor content and advertising to
-                your area - you can make choices about how we use your data at any point in your app
-                settings page.
-              </span>
-            </div>
+
+            <InfoBox title="Postcode" text="Information here" />
           </div>
           <div className="date-of-birth group">
             <Icon type="calendar" size="tiny" className="input-icon" />
@@ -149,14 +108,7 @@ const Register: React.FC<Props> = (props: Props) => {
                 {errors.dobYear && dirty.dobYear && <span className="error">{errors.dobYear}</span>}
               </div>
             </div>
-            <Icon type="exclamation" size="small" />
-            <div className="information-box">
-              Date of birth
-              <span>
-                We will use this to allow us to only serve age-appropriate content and remove the
-                necessity to ask you every time you play age-restricted content.
-              </span>
-            </div>
+            <InfoBox title="Date of birth" text="Information here" />
           </div>
           <div className="group">
             <Icon type="email" size="tiny" className="input-icon" />
